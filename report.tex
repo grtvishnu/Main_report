@@ -58,8 +58,10 @@
 \chapter*{\centering{Abstract}}
 \addcontentsline{toc}{chapter}{\quad ABSTRACT}
 
-In the populated and developing countries, governments consider the regulation of air as a major task. The meteorological and traffic factors, burning of fossil fuels, industrial parameters such as power plant emissions play significant roles in air pollution. Among all the particulate matter that determine the quality of the air, Particulate matter (PM 2.5) needs more attention. PM2.5 refers to tiny particles in the air that reduce visibility and cause the air to appear hazy when levels are elevated. When it’s level is high in the air, it causes serious issues on people’s health. However, the relationships between the concentration of these particles and meteorological and traffic factors are poorly understood.the proposed system combines meteorological features with gaseous pollutants such as SO2,NO2 etc.The proposed system employs logistic regression to detect whether a data sample is either polluted or not polluted and for prediction, efficient machine learning techniques like Random forest,Deep learning and Extreme gradient boosting are used.
-
+Air pollution has become an important public health concern The high concentration of fine particulate matter with diameter less than 2.5 $\mu$m (PM 2.5 ) is known to be associated with lung cancer, cardiovascular disease, respiratory disease, and metabolicdisease.
+Predicting Air Quality can help governments warn people at high risk, thus mitigating the complications. 
+\par In this work feature importance of air pollution, Implementing Random forest, XGBoost, CatBoost and Deep learning machine learning (ML) approaches.
+We use 8 features, including meteorological data, ground-measured PM 2.5 and gaseous pollutants. forecasting Air quality using deep learning technique LSTM and Prophet package by Facebook we can extract the trend yearly seasonality, and weekly seasonality of the time series 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -83,18 +85,51 @@ In the populated and developing countries, governments consider the regulation o
 
 
 \chapter {INTRODUCTION}
-
-{\em In recent years, air pollution has become an important public health concern The regulation of air pollutant levels is rapidly becoming one of the most important tasks for the
-governments of developing countries, }
-
+	
 \section{General}    % For giving Section  eg: 1.1
-In the populated and developing countries, governments consider the regulation of air as a major task. The meteorological and gasous pollutents, burning of fossil fuels, industrial parameters such as power plant emissions play significant roles in air pollution. Among all the particulate matter that determine the quality of the air, Particulate matter (PM 2.5) needs more attention. PM2.5 refers to tiny particles in the air that reduce visibility and cause the air to appear hazy when levels are elevated. When it’s level is high in the air, it causes serious issues on people’s health. However, the relationships between the concentration of these particles and meteorological and traffic factors are poorly understood.the proposed system combines meteorological features with gaseous pollutants such as SO2,NO2 etc.The proposed system employs logistic regression to detect whether a data sample is either polluted or not polluted and for prediction, efficient machine learning techniques like Random forest,Deep learning and Extreme gradient boosting are used.
-
+As a consequence of urbanization and
+industrialization, air pollution has become one of
+the most important public health concerns. The
+PM 2.5 pollutant is defined as fine inhalable
+particles with diameters less than 2.5 $\mu$m. The
+association of high PM 2.5 concentration and
+cancer, cardiovascular disease, respiratory
+disease, metabolic disease, and obesity has been
+proven.
+\par Particulate matter can be either
+human-made or naturally occur.Some examplesinclude dust, ash and sea-spray. Particulate matter
+(including soot) is emitted during the combustion
+of solid and liquid fuels, such as for power
+generation, domestic heating and in vehicle
+engines. Particulate matter varies in size.
+Different machine learning models have been
+applied to detect air pollution and predict PM2.5
+levels based on a data set consisting of daily
+atmospheric conditions. Although several
+attempts have been made to predict PM 2.5
+concentration, the relationship between features
+that influence PM 2.5 concentration prediction is
+still not well understood.
 
 % You can add any sections like that . . . 
 
 \section{Objectives of the Work}
-The objective of the system is to develop a system which is more accurate and efficient, The existing system doesn’t combine the meteorological features with the gaseous pollutant like SO2, NO2, The proposed system combines these features to attain optimum efficiency
+This system exploits machine learning models
+to predict and forecast PM2.5 levels based on a
+data set consisting of atmospheric conditions in a
+specific city. \pagebreak \linebreak
+
+The proposed system does two tasks
+\begin{description}
+  \item[$\bullet$ (i)]  predict the levels of PM2.5 based on given historical values.
+  \item[$\bullet$ (ii)]   Forecast the level of PM2.5 for 7 days.
+\end{description}
+Random forest, Extreme gradient boost, CatBoost
+and Deep learning are employed to predict the
+level of PM 2.5 based on the previous readings.
+The primary goal is to predict the air pollution
+level in the City with the ground data set.
+Prophet and LSTM is used to forecast the PM2.5 level upto 7 Days.
 
 
 \section{Motivation for this work}
@@ -105,14 +140,14 @@ The health effects of PM depend on several factors, including the size and compo
 
 \pagebreak
 \section{Methodologies Adopted}
-For the project, we evaluated several different types of detection and prediction machine learning  models which will be described below. We use Logistic Regression method for detecting PM2.5 level and XGBoost,Random Forest and Deep Learning for prediction.Data processing and matching is necessary because the data is obtained from diﬀerent sources.Therefore, we intend to use interpolation to estimate and ﬁll in the missing data.Data normalization is an important step for many machine-learning estimators. A correlation matrix can be used to investigate the dependence between multiple variables at the same time
+For the project, we evaluated several different types of prediction and forecast machine learning  models which will be described below. We use Prophet and LSTM for forecasting air quality and XGBoost,Random Forest, CatBoost and Deep Learning for prediction.Data processing and matching is necessary because the data is obtained from diﬀerent sources.Therefore, we intend to use interpolation to estimate and ﬁll in the missing data.Data normalization is an important step for many machine-learning estimators. A correlation matrix can be used to investigate the dependence between multiple variables at the same time
 
 
 \section{Outline of the Report}
 This report contains 4 chapters. Chapter 1 gives the introduction to the project work and
 describes the objectives of the work. Literature survey is describes in Chapter 2. System
 Design is explained in the chapter 3 and Methodology  is well explained
-in chater 4.
+in chater 4. 
 
 
 \chapter{LITERATURE REVIEW}
@@ -301,13 +336,13 @@ processing.
 modules and components, the different interfaces of those components and the data
 that goes through that system. }
 
-\section {Basic Model}
+\section {Prediction Model}
 
 \begin{figure}[h!]
 \label{bb}
 \centering
-\includegraphics[width= 14 cm]{design1.jpeg}
-\caption{Basic model }
+\includegraphics[width= 14 cm]{prearch.jpg}
+\caption{Prediction model }
 \end{figure}
 
 The data, which is a combination of both meteorological features and gaseous pollutants is randomly divided into two : Training set and Test set. Usually,it is divided as 70\% for training and 30\% for  test set. Learn models using training set and test the model with test set,from that we select the most accurate model. During training process,the training set is trained using three machine learning algorithms.The algorithms used are : Random Forest, XGBoost, Deep Learning.
@@ -319,7 +354,7 @@ The data, which is a combination of both meteorological features and gaseous pol
 \begin{figure}[h!]
 \label{bc}
 \centering
-\includegraphics[width= 16 cm]{design2.jpeg}
+\includegraphics[width= 20 cm]{design2.jpeg}
 \caption{Architecture of the system}
 \end{figure}
 
