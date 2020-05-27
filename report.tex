@@ -575,17 +575,43 @@ xgb.cv()\par
 \includegraphics[width= 14 cm]{xgb_kfold.png}
 \caption{cross-validation}
 \end{figure}
+\subsubsection{Feature Importance}
+Although it is important to be proficient in
+understanding the inner workings of the
+algorithm, Just showing that the algorithm
+predicts well is not enough. You have to attribute
+the predictions to the elements of the input data
+that contribute to your accuracy. feature
+importances which helps us explain the predictive
+power of the features in the dataset.\par
+ Sometimes it
+is just as important to understand how the features
+in our model contribute to prediction. The feature
+importances from xgboost are	
+calculated based on the training data given to the
+model, not on predictions on a test dataset.by
+getting a better understanding of the model’s
+logic you can not only verify it being correct but
+also work on improving the model by focusing
+only on the important variables
+\begin{figure}[h]
+\label{bd}
+\centering
+\includegraphics[width= 15 cm]{xgbimp.png}
+\caption{Feature Importance of xgBoost}
+\end{figure}
 
 \subsection{CatBoost modelling}
 CatBoost is a new gradient boosting decision tree (GBDT) algorithm that can handle categorical features well. “CatBoost” name comes from two words “Category” and “Boosting”. This algorithm is different from traditional GBDT algorithms. One main difference between CatBoost and other boosting algorithms is that the CatBoost implements symmetric trees.
    CatBoost is an ensemble of symmetric decision trees, whose symmetry structure endows it fewer parameters, faster training and testing, and higher accuracy. In addition, CatBoost replaces the gradient estimation method of the traditional gradient boosting algorithm with ordered boosting, thereby reducing the bias of the gradient estimation and improving the generalization capability
+The root mean square value of catboost is obtained as 0.6030147.\pagebreak
+
 \begin{figure}[h]
 \label{bd}
 \centering
 \includegraphics[width= 11 cm]{cat1.jpg}
 \caption{Parameters}
-\end{figure}\linebreak
-The root mean square value of catboost is obtained as 0.6030147.
+\end{figure}
 
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
