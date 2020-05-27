@@ -344,76 +344,99 @@ that goes through that system. }
 \includegraphics[width= 14 cm]{prearch.jpg}
 \caption{Prediction model }
 \end{figure}
-
+\pagebreak
 The data, which is a combination of both meteorological features and gaseous pollutants is randomly divided into two : Training set and Test set. Usually,it is divided as 70\% for training and 30\% for  test set. Learn models using training set and test the model with test set,from that we select the most accurate model. During training process,the training set is trained using three machine learning algorithms.The algorithms used are : Random Forest, XGBoost, Deep Learning.
 
-\pagebreak
 
-\section {Architecture}
+
+\section {Forecast Model}
 
 \begin{figure}[h!]
 \label{bc}
 \centering
-\includegraphics[width= 20 cm]{design2.jpeg}
-\caption{Architecture of the system}
+\includegraphics[width= 14 cm]{lstm.png}
+\caption{Architecture of the lstm}
 \end{figure}
 
+
+Time series forecasting (TSF) is the task of predicting future values of a given sequence using historical data. Recently, this task has attracted the attention of researchers in the area of machine learning to address the limitations of traditional forecasting methods, which are time-consuming and full of complexity. With the increasing availability of extensive amounts of historical data along with the need of performing accurate production forecasting, particularly a powerful forecasting technique infers the stochastic dependency between past and future values is highly needed. In this paper, we propose a deep learning approach capable to address the limitations of traditional forecasting approaches and show accurate predictions. The proposed approach is a deep long-short term memory (DLSTM) architecture, as an extension of the traditional recurrent neural network. 
+
+
+\chapter{METHODOLOGIES}  % Short of the project name
+
+\section {Data Pre-processing}
+Data pre-processing is a process of cleaning the raw data i.e. the data is collected in the real world and is converted to a clean data set. In other words, whenever the data is gathered from different sources it is collected in a raw format and this data isn't feasible for the analysis.Therefore, certain steps are executed to convert the data into a small clean data set, this part of the process is called as data pre-processing.\par
+Data processing and matching is necessary
+because the data was obtained from different
+sources. Daily climatic data was downloaded
+from the IMO portal. There are a few missing
+values or in some cases, full day missing records.
+Therefore, we used imputation by predictive
+mean matching to estimate and fill in the missing
+data. The time format of the data was not in good
+format and thus was converted to be compatible
+with the other data. Missing values for short or
+long periods are a common problem in air
+pollution monitoring stations. This happens when
+there is a critical failure or temporary power
+cutoff. There are many missing values that cannot
+be compensated by interpolation.
 \pagebreak
+\subsection{Data Distribution}
+\begin{figure}[h!]
+\label{bc}
+\centering
+\includegraphics[width= 16 cm]{Histogram.png}
+\caption{Static Analysis}
+\end{figure}
+Outliers are extreme values that deviate from other observations on data , they may indicate a variability in a measurement, experimental errors or a novelty. In other words, an outlier is an observation that diverges from an overall pattern on a sample.we can find outliers by checking histograms or densiity plot of the data.
 
-Initially the raw dataset is cleaned using several data preprocessing techniques. The data preprocessing techniques used are Interpolation, Normalization. After the missing values are removed ,and the data is normalized to a commom range, cross validation is performed on the data set. The dataset is divided into k folds,and training and testing is performed on the dataset. Correlation matrix of the dataset is formed ,and the features with positive correlation with PM2.5 are selected. After the data model is is created, the data is trained and tested using machine learning algorithms i.e Random Forest, XGBoost,Deep Learning respectively.The most accurate model is selected and used for the air pollution index prediction.
-
-\section {Data pre-processing}
-Data pre-processing is a process of cleaning the raw data i.e. the data is collected in the real world and is converted to a clean data set. In other words, whenever the data is gathered from different sources it is collected in a raw format and this data isn’t feasible for the analysis.Therefore, certain steps are executed to convert the data into a small clean data set, this part of the process is called as data pre-processing.
-
+\subsection{Correlation}
+Correlation is a measure of how strongly one variable depends on another.Correlation is
+a bivariate analysis that measures the strength of association between two variables and
+the direction of the relationship. In terms of the strength of relationship, the value of the
+correlation coefficient varies between +1 and -1. A value of +1 or -1 indicates a perfect
+degree of association between the two variables.
+\subsubsection{Spearman rank correlation}
+Spearman rank correlation is a non-parametric test that is used to measure the degree of
+association between two variables. The Spearman rank correlation test does not carry any
+assumptions about the distribution of the data and is the appropriate correlation analysis
+when the variables are measured on a scale that is at least ordinal.The assumptions of the Spearman correlation are that data must be at least ordinal
+and the scores on one variable must be monotonically related to the other variable
+\begin{figure}[h!]
+\label{bc}
+\centering
+\includegraphics[width= 14 cm]{corr.png}
+\caption { Correlation}
+\end{figure}
 \subsection{Normalization}
-Normalization is a technique often applied as part of data preparation for machine learning. The goal of normalization is to change the values of numeric columns in the dataset to a common scale, without distorting differences in the ranges of values. For machine learning, every dataset does not require normalization. It is required only when features have different ranges.
-
-
-\subsection{Interpolation }
-Interpolation is the process of deriving a simple function from a set of discrete data points so that the function passes through all the given data points (i.e. reproduces the data points exactly) and can be used to estimate data points in-between the given ones.
-
-
-
-\begin{figure}[h]
-\label{bd}
-\centering
-\includegraphics[width= 14 cm]{de3.jpeg}
-\caption{Steps involved}
-\end{figure}
-
-
-\begin{figure}[h]
-\label{bd}
-\centering
-\includegraphics[width= 14 cm]{de4.jpeg}
-\caption{Steps involved}
-\end{figure}
-
-
-
-
-
-
-\chapter{METHODOLOGIES FOR THE PROJECT}  % Short of the project name
-
-
-
-\section{Detection Methods}
-\subsection{Logistic regression}
-Logistic regression  is the algorithm employed to detect a user-defined sample to be polluted or not.Logistic regression is the appropriate regression model to conduct analysis when the dependent variable is dichotomous (binary or has two classes).
-For example, here, the data set gets classified into two classes - I.E, Polluted or Not Polluted. Like all regression analyses, the logistic regression is a predictive analysis. Logistic regression is used to explain the relationship between one or more independent variables and one dependent binary variable.
-\begin{figure}[h]
-\label{ss}
-\centering
-\includegraphics[width= 14 cm]{log.png}
-\end{figure}
-Logit function is used to generate log odds of an attribute that signifies the probability of the attribute. Log odds are an alternate way of expressing probabilities, which simplifies the process of updating them with new evidence. Based on logit function, the system classifies the training data to be either 0 (not polluted) or 1 (polluted) and verifies its accuracy using the test data. The result of the user input is also 0/1 and not the PM2.5 level.
-\begin{figure}[h]
-\label{ss}
-\centering
-\includegraphics[width= 14 cm]{logorg.png}
-\end{figure}
-\section{Prediction methods}
+Normalization is a technique often applied as part of data preparation for machine learning. The goal of normalization is to change the values of numeric columns in the dataset
+to a common scale, without distorting differences in the ranges of values. For machine
+learning, every dataset does not require normalization. It is required only when features
+have different ranges.Data normalization is an important step for many machine-learning
+estimators, particularly when dealing with deep learning. The preferred range of features
+for most ML approaches is between -1 to 1. Features with a wider range can cause instability during the model training Standardization was used to standardize the features
+by deducting the mean and scaling the data, with the variance of feature. After applying standard normalizations,train and test datasets were prepared. Dataset records were
+shuffled and split to 70\% for the train and 30\% for the test.
+\subsubsection{Z-Score}
+Z-score normalization is also known as zero-mean normalization. Z-score normalization
+technique normalizes the input values in the dataset using mean and standard deviation.
+The mean and standard deviation for each feature vector is calculated across the training dataset. This normalization technique determines whether an input value is below
+or above the average value. It will be very useful to normalize the dataset when the
+attribute’s maximum or minimum values are unknown and outliers dominate the input
+values.	
+\subsection{Imputation}
+Imputation is a term replace the missing values by some predictable which said to be
+plausible values in the dataset. It makes use of observed supporting information for cases
+with non-response maintain high accuracy.
+\subsubsection{Prediction mean matching Imputation}
+Predictive mean matching imputation is hot deck imputation within classes where the
+classes are defined based on the range of the predicted values from the imputation model.
+This method achieves a more even spread of donor values for imputation within classes,
+which reduces the variance of the imputed estimator. Donor values within classes may
+be drawn with or without replacement, where without replacement is expected to lead to
+a further reduction in the variance.
+\section{Prediction}
 \subsection{Random Forest Modeling}
 Random forests are a combination of tree predictors
 such that each tree depends on the values of a random
@@ -433,38 +456,107 @@ In the Random Forests algorithm, each new data point goes through the same proce
 \includegraphics[width= 10 cm]{rf.png}
 \caption{Random Forest}
 \end{figure}
-\subsection{Extreme gradient boosting}
-XGBoost has been widely used in many fields to achieve
-state-of-the-art results on some data challenges (e.g., Kaggle
-competitions), which is a high effective scalable machine
-learning system for tree boosting. XGBoost is optimized under the Gradient Boosting framework and developed by Chen and Guestrin , which is designed to
-be highly efficient, flexible and portable. The main idea
-of boosting is to combine a series of weak classifiers
-with low accuracy to build a strong classifier with better
-classification performance. If the weak learner for each step
-is based on the gradient direction of the loss function, it can
-be called the Gradient Boosting Machines.
-\par
- This is an ensemble method that seeks to create a strong classifier (model) based on “weak” classifiers.Weak and strong refer to a measure of how correlated are the learners to the actual target variable. By adding models on top of each other iteratively, the errors of the previous model are corrected by the next predictor, until the training data is accurately predicted or reproduced by the model.
+\subsubsection{Procedure}
+Random forest is a supervised ensembling
+learning method, introduced by Ho [6], that acts
+based on decision trees. it is very flexible
+and fast. To conduct RF analysis, it is necessary
+to adjust a model’s hyperparameters. A grid
+search for model performance optimization was
+carried out with the 10-fold cross-validation
+technique based on the R square metric.
 \begin{figure}[h]
 \label{ss}
 \centering
-\includegraphics[width= 10 cm]{xg.png}
-\caption{ Extreme Gradient Boosting}
+\includegraphics[width= 10 cm]{rftable.png}
+\caption{Table: Random Forest Parameters}
 \end{figure}
+
+\subsubsection{K-fold Cross Validation}
+The objective is to choose different partitions of training set and validation set, and then average the result, so that the result will not be biased by any single partition.In k-fold cross-validation, the original sample is randomly partitioned into k equal sized subsamples. Of the k subsamples, a single subsample is retained as the validation data for testing the model, and the remaining subsamples are used as training data. The cross-validation process is then repeated k times, with each of the k subsamples used exactly once as the validation data. The k results can then be averaged to produce a single estimation. The advantage of this method over repeated random sub-sampling is that all observations are used for both training and validation, and each observation is used for validation exactly once. 10-fold cross-validation is commonly used, but in general k remains an unfixed parameter.
+The ntree parameter specifies the number of trees to grow. In the random forests literature, this is referred to as the ntree parameter. Larger number of trees produce more stable models and covariate importance estimates, but require more memory and a longer run time. For small datasets, 50 trees may be sufficient. For larger datasets, 500 or more may be required.
+The mtry parameter specifies the number of variables available for splitting at each tree node. In the random forests literature, this is referred to as the mtry parameter. The default value of this parameter depends on which R package is used to fit the model:
+
+RandomForest - For classification models, the default is the square root of the number of predictor variables (rounded down). For regression models, it is the number of predictor variables divided by 3 (rounded down).
+
+Party - The default is always 5.
+
+There is extensive discussion in the literature about the influence of mtry. Cutler et al. (2007) reported that different values of mtry did not affect the correct classification rates of their model and that other performance metrics (sensitivity, specificity, kappa, and ROC AUC) were stable under different values of mtry. On the other hand, Strobl et al. (2008) reported that mtry had a strong influence on predictor variable importance estimates.
+We make use of grid search to tune the parameters mtry and ntree, for obtaining accurate predictions from our model.
+
+
+\subsubsection{Accuracy}
+Accuracy is a nice metric for classification, but it doesn’t really make sense in the context of regression. Instead, we will use root mean square error (RMSE) to estimate how well our random forest was able to predict our test set outcomes. RMSE or Root Mean Squared Error is the average deviation of the predictions from the observations. It is useful to get a gross idea of how well (or not) an algorithm is doing, in the units of the output variable.
+\begin{figure}[h]
+\label{ss}
+\centering
+\includegraphics[width= 10 cm]{rf_nooftrees_vs_error.png}
+\caption{Plot of number of trees vs Error}
+\end{figure}
+\pagebreak
+
+The variables importance measures can be plotted using the function varImpPlot(),as shown in the fisgure below:
+\begin{figure}[h]
+\label{ss}
+\centering
+\includegraphics[width= 10 cm]{rf_freature_importence.png}
+\caption{Feature Impotance}
+\end{figure} 
+\linebreak
+A histogram representation to show the frequency of the trees with particular number of nodes in our random forest model:\linebreak
+\begin{figure}[h]
+\label{ss}
+\centering
+\includegraphics[width= 11 cm]{rf_no_of_nodes_for_the_trees.png}
+\caption{Histogram}
+\end{figure}\pagebreak
+
 \subsection{Deep Learning}
 Deep learning is one of the machine learning methods that is based on its ancestor—the Artiﬁcial Neural Network (ANN).
-The most beautiful thing about Deep Learning is that it is based upon how we, humans, learn and process information. Everything we do, every memory we have, every action we take is controlled by our nervous system which is composed of neurons! The simplest of the ANNs can be created from three layers of “neurons”. The input layer, the hidden layer and the output layer. Information flows from the input layer, through the hidden layer to the output layer and then out.
+The most beautiful thing about Deep Learning is that it is based upon how we, humans, learn and process information. Everything we do, every memory we have, every action we take is controlled by our nervous system which is composed of neurons! The simplest of the ANNs can be created from three layers of “neurons”. The input layer, the hidden layer and the output layer. Information flows from the input layer, through the hidden layer to the output layer and then out.\linebreak
 \begin{figure}[h]
 \label{ss}
 \centering
 \includegraphics[width= 14 cm]{deep.png}
 \caption{Simple Artificial Neural Network}
-\end{figure}
+\end{figure} \linebreak
 
 When a neural network is being trained. it is provided with a set of inputs as well as their corresponding outputs. It runs the inputs through the neurons on each of the layers of the network, and using the parameters above, each neuron transforms the input in some way and forwards it to the next layer and so on. The result that it receives on the output layer is then compared to the outputs supplied above and it checks how far apart the two are and accordingly adjusts the parameters on each of the neurons through special algorithmsdesigned to bring the actual and produced outputs as close to each other as possible. It learns to adjust its weights and threshold values to arrive at the correct output. This is what we call as “learning” for the artificial neural network. This process is repeated a (very high) number of times until the produced and expected outputs are as close as possible. That completes the training.when new inputs are supplied to the neural network, we can confidently say that the predicted outputs of the network will be fairly close to the actual outputs. Such ANNs can be used in predicting based upon certain features and classifying objects and images.\\
-Such neural networks which consist of more than three layers of neurons (including the input and output layer) are called as Deep Neural Networks. And training them is called as Deep Learning.
+Such neural networks which consist of more than three layers of neurons (including the input and output layer) are called as Deep Neural Networks. And training them is called as Deep Learning. \linebreak
 
+\subsubsection{Multilayer Perceptron}
+A multilayer perceptron (MLP) is a class of
+feedforward artificial neural network (ANN). To
+measure the performance of the regressor the loss
+function is defined Sometimes the problem of
+overfitting and underfitting occurs at the time of
+training the model. In order to train the network,
+an optimization procedure is required for this. We
+need loss function and an optimizer. This
+procedure will find the values for the set of
+weights, W that minimizes the loss function.
+
+\begin{figure}[h]
+\label{ss}
+\centering
+\includegraphics[width= 11 cm]{deep_nue_mod.png}
+\caption{Neural Network Model}
+\end{figure} \pagebreak
+
+\par
+Procedure:
+AQI is set as the dependent variable,and the rest of the  features are set as the independent variables.The data is converted into a matrix form,and is split into two independent samples, training and testing, 70 percent and 30 percent respectively.The test and train samples are then normalised, using Z Normalization.The tuned model has two hidden layer, with ten and five neurons. The activation function used in Rectified Linear Unit (relu). The input layer has one neuron each for the independent variables,and the output layer has one neuron for response. As we are using regression and the output variable is numeric, mse  is used as the loss function ,and rmsprop is used as the optimizer function and mae is used as the metric function , to compile the model.To fit the model,the training data is used ,which is run over a 100 epochs,then to evaluate the model ,the testing data is used. The test data is used for getting the prediction.
+\begin{figure}[h]
+\label{ss}
+\centering
+\includegraphics[width= 14 cm]{deep_target_vs_prediction_plot.png}
+\caption{Predicted vs Testtarget Plot}
+\end{figure}\pagebreak
+
+\subsection{XGBoost modelling}
+XGBoost is an ensemble learning algorithm that follows the principle of boosting. Boosting is a general term in ML where multiple weak learners such as regression trees are ensembled to create a single strong learner. The basic idea behind this procedure is to learn sequentially in which the current regression tree is fitted to the residuals (errors) from the previous trees. This new regression tree is then added to the fitted model to update the residuals. It is worth noting that statistical learning approaches that learn slowly such as boosting tend to perform well . The principle of gradient boosting further enhances the flexibility of the boosting algorithm by constructing the new regression trees to be maximally correlated to the negative of the gradient of the loss function. 
+XGBoost is based on a gradient boosting algorithm proposed by Tianqi Chen .The XGBoost similar to the random forest is tuned using hyperparameters. A grid search on hyperparameters with 10-fold cross-validation was carried out to find the best model based on R square metrics.
+ 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
