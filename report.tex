@@ -555,7 +555,38 @@ AQI is set as the dependent variable,and the rest of the  features are set as th
 
 \subsection{XGBoost modelling}
 XGBoost is an ensemble learning algorithm that follows the principle of boosting. Boosting is a general term in ML where multiple weak learners such as regression trees are ensembled to create a single strong learner. The basic idea behind this procedure is to learn sequentially in which the current regression tree is fitted to the residuals (errors) from the previous trees. This new regression tree is then added to the fitted model to update the residuals. It is worth noting that statistical learning approaches that learn slowly such as boosting tend to perform well . The principle of gradient boosting further enhances the flexibility of the boosting algorithm by constructing the new regression trees to be maximally correlated to the negative of the gradient of the loss function. 
-XGBoost is based on a gradient boosting algorithm proposed by Tianqi Chen .The XGBoost similar to the random forest is tuned using hyperparameters. A grid search on hyperparameters with 10-fold cross-validation was carried out to find the best model based on R square metrics.
+XGBoost is based on a gradient boosting algorithm proposed by Tianqi Chen .The XGBoost similar to the random forest is tuned using hyperparameters. A grid search on hyperparameters with 10-fold cross-validation was carried out to find the best model based on R square metrics.\linebreak
+
+\begin{figure}[h]
+\label{bd}
+\centering
+\includegraphics[width= 11 cm]{xg1.png}
+\caption{Parameters}
+\end{figure}
+The root mean square value of xgboost is obtained as 0.7457792.\pagebreak
+
+\subsubsection{Cross validation in xgboost}
+Cross validation is a statistical method to evaluate machine learning models on unseen data. It comes in handy when the dataset is limited and prevents overfitting by not taking an independent sample (holdout) from training data for validation. By reducing the size of training data, we are compromising with the features and patterns hidden in the data which can further induce errors in our model. This is similar to cross\_val\_score functionality provided by the caret library. XGBoost uses built-in cross validation function cv():
+xgb.cv()\par
+2. k-fold Cross-validation — In k-fold cross-validation, data is shuffled and divided into k equal sized subsamples. One of the k subsamples is used as a test/validation set and remaining (k -1) subsamples are put together to be used as training data. Then we fit a model using training data and evaluate using the test set. This process is repeated k times so that every data point stays in validation set exactly once. The k results from each model should be averaged to get the final estimation. The advantage of this method is that we significantly reduce bias and variance and also increase the robustness of the model. 
+\begin{figure}[h]
+\label{bd}
+\centering
+\includegraphics[width= 14 cm]{xgb_kfold.png}
+\caption{cross-validation}
+\end{figure}
+
+\subsection{CatBoost modelling}
+CatBoost is a new gradient boosting decision tree (GBDT) algorithm that can handle categorical features well. “CatBoost” name comes from two words “Category” and “Boosting”. This algorithm is different from traditional GBDT algorithms. One main difference between CatBoost and other boosting algorithms is that the CatBoost implements symmetric trees.
+   CatBoost is an ensemble of symmetric decision trees, whose symmetry structure endows it fewer parameters, faster training and testing, and higher accuracy. In addition, CatBoost replaces the gradient estimation method of the traditional gradient boosting algorithm with ordered boosting, thereby reducing the bias of the gradient estimation and improving the generalization capability
+\begin{figure}[h]
+\label{bd}
+\centering
+\includegraphics[width= 11 cm]{cat1.jpg}
+\caption{Parameters}
+\end{figure}\linebreak
+The root mean square value of catboost is obtained as 0.6030147.
+
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
