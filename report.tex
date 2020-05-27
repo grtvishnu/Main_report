@@ -436,7 +436,7 @@ This method achieves a more even spread of donor values for imputation within cl
 which reduces the variance of the imputed estimator. Donor values within classes may
 be drawn with or without replacement, where without replacement is expected to lead to
 a further reduction in the variance.
-\section{Prediction}
+\section{Air Quality Prediction}
 \subsection{Random Forest Modeling}
 Random forests are a combination of tree predictors
 such that each tree depends on the values of a random
@@ -584,6 +584,26 @@ the predictions to the elements of the input data
 that contribute to your accuracy. feature
 importances which helps us explain the predictive
 power of the features in the dataset.\par
+\begin{figure}[h]
+\label{bd}
+\centering
+\includegraphics[width= 15 cm]{xgbimp.png}
+\caption{Feature Importance of xgBoost}
+\end{figure}
+
+\subsection{CatBoost modelling}
+CatBoost is a new gradient boosting decision tree (GBDT) algorithm that can handle categorical features well. “CatBoost” name comes from two words “Category” and “Boosting”. This algorithm is different from traditional GBDT algorithms. One main difference between CatBoost and other boosting algorithms is that the CatBoost implements symmetric trees.
+   CatBoost is an ensemble of symmetric decision trees, whose symmetry structure endows it fewer parameters, faster training and testing, and higher accuracy. In addition, CatBoost replaces the gradient estimation method of the traditional gradient boosting algorithm with ordered boosting, thereby reducing the bias of the gradient estimation and improving the generalization capability
+The root mean square value of catboost is obtained as 0.6030147.
+
+\begin{figure}[h]
+\label{bd}
+\centering
+\includegraphics[width= 7 cm]{cat1.jpg}
+\caption{Parameters}
+\end{figure}
+
+ \subsubsection{Feature Importance}
  Sometimes it
 is just as important to understand how the features
 in our model contribute to prediction. The feature
@@ -597,23 +617,37 @@ only on the important variables
 \begin{figure}[h]
 \label{bd}
 \centering
-\includegraphics[width= 15 cm]{xgbimp.png}
-\caption{Feature Importance of xgBoost}
+\includegraphics[width= 8 cm]{catimp.png}
+\caption{Feature Importance of catBoost}
 \end{figure}
+\pagebreak
+\section{Air Quality Forecast}
 
-\subsection{CatBoost modelling}
-CatBoost is a new gradient boosting decision tree (GBDT) algorithm that can handle categorical features well. “CatBoost” name comes from two words “Category” and “Boosting”. This algorithm is different from traditional GBDT algorithms. One main difference between CatBoost and other boosting algorithms is that the CatBoost implements symmetric trees.
-   CatBoost is an ensemble of symmetric decision trees, whose symmetry structure endows it fewer parameters, faster training and testing, and higher accuracy. In addition, CatBoost replaces the gradient estimation method of the traditional gradient boosting algorithm with ordered boosting, thereby reducing the bias of the gradient estimation and improving the generalization capability
-The root mean square value of catboost is obtained as 0.6030147.\pagebreak
+\subsection{Prophet}
+Prophet is applied on the time series data set to
+forecast the PM2.5 value 7 days prior to the
+current date, producing the RMSE to be 24.00.
+This is achieved by using historical data of PM2.5
+for the last 5 years.
+Prophet is a open source package for forecasting that is introduced by facebook. It is also used for finding the trend, weekly and yearly seasonality in the time series data.
+Prophet is a procedure for forecasting time series
+data based on an additive model where non-linear
+trends are fit with yearly, weekly, and daily
+seasonality, plus holiday effects. It works best
+with time series that have strong seasonal effects
+and several seasons of historical dataProphet is a procedure for forecasting time series
+data based on an additive model where non-linear
+trends are fit with yearly, weekly, and daily
+seasonality, plus holiday effects. It works best
+with time series that have strong seasonal effects
+and several seasons of historical data
 
 \begin{figure}[h]
 \label{bd}
 \centering
-\includegraphics[width= 11 cm]{cat1.jpg}
-\caption{Parameters}
+\includegraphics[width= 15 cm]{proph.png}
+\caption{Forecast}
 \end{figure}
-
- 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
