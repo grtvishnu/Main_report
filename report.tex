@@ -134,9 +134,27 @@ Prophet and LSTM is used to forecast the PM2.5 level upto 7 Days.
 
 \section{Motivation for this work}
 
-PM is a complex mixture of solid and liquid particles suspended in air that is released into the atmosphere when coal, gasoline, diesel fuels and wood are burned. It is also produced by chemical reactions of nitrogen oxides and organic compounds that occur in the environment. Vegetation and livestock are also sources of PM. In big cities, production of PM is attributed to cars, trucks and coal-fired power plants.
-
-The health effects of PM depend on several factors, including the size and composition of the particles, the level and duration of exposure, and the gender, age and sensitivity of the exposed individual. Symptoms of exposure may include persistent cough, sore throat, burning eyes and chest tightness. PM may also trigger asthma or lead to premature death, particularly in elderly individuals with pre-existing disease.3,4 In addition, people who are active outdoors are at higher risk, as physical activity increases the amounts of PM penetrating into the airways. People with disease (e.g. diabetes mellitus, malnutrition) are also at increased risk.5–7 A comprehensive review on diesel PM by Ristovski et al. was published in an earlier issue of this review series on air pollution and lung disease.\\
+Considering the daily newspapers and any other electronic or print media, a devastating
+news which is spreading day by day is people is becoming sick and the climate is changing such
+a way that it has become miserable for living of people. From the aspect from top to bottom,
+every people are suffering the curse of climate change. The main reason for the climate change
+and people health is air pollution. It has brought changes in climate like global warming, global
+dimming, over raining, drought, storms, acid rain, foggy weather etc. The living things on earth
+and under water are suffering many problems like change in life due to lack of proper facilities
+of life. 
+Continued exposure to environments with poor air quality is a major public health concern in
+developed and developing countries. It is estimated that the pollutants responsible for poor air
+quality cause nearly 2.5 million premature deaths per year world-wide. Significantly, around 1.5
+million of these deaths are due to polluted indoor air, and it is suggested that poor indoor air
+quality may pose a significant health risk to more than half of the world’s population. Due to its
+link with industrialisation, societal health problems associated with poor air quality
+disproportionately affects developed and developing nations – it is estimated that air pollution is
+responsible for the premature deaths. 
+Air is the most useful thing for each and every living thing. Researching on this serious
+issue this system’s main purpose was to estimate the quality of air for people and any other
+living thing which exist on earth. Very important to know for our living is that how much safe
+we are now and how the weather and climate has changed for air pollution and it will sustain
+sound. \
 
 \pagebreak
 \section{Methodologies Adopted}
@@ -645,9 +663,46 @@ and several seasons of historical data
 \begin{figure}[h]
 \label{bd}
 \centering
-\includegraphics[width= 15 cm]{proph.png}
+\includegraphics[width= 15 cm]{proph1.png}
 \caption{Forecast}
+\end{figure} \pagebreak
+
+\begin{figure}[h]
+\label{bd}
+\centering
+\includegraphics[width= 11 cm]{r1.png}
+\caption{Yearly weekly seasonality and trend}
 \end{figure}
+
+\subsection{Long Short-Term Memory networks(LSTM)}
+
+We are using a Univariate LSTM model from many univariate LSTM we select CNN LSTM model.
+The CNN can be very effective at automatically extracting and learning features from univarient data. Model can be used in a hybrid model with an LSTM backend where the CNN is used to interpret subsequences of input that together are provided as a sequence to an LSTM model to interpret
+\begin{figure}[h]
+\label{bd}
+\centering
+\includegraphics[width= 2.2 cm]{lstm_org.png}
+\caption{Working of CNN LSTM}
+\end{figure}
+
+\subsubsection{Parameters}
+
+\begin{figure}[h]
+\label{bd}
+\centering
+\includegraphics[width= 15 cm]{lstm_para.jpg}
+\caption{Summary of the model}
+\end{figure}
+\begin{figure}[h]
+\label{bd}
+\centering
+\includegraphics[width= 14 cm]{proph.png}
+\caption{model plot}
+\end{figure}
+
+ This model is producing the RMSE of 18.64
+
+\chapter{IMPLEMENTATION AND  DEPLOYMENT}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
