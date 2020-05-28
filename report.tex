@@ -749,8 +749,22 @@ All the forecasting model is trained using 5 years of historical data of air qua
 for LSTM model is saved in the tensorflow savedmodel format
 and prophet model saved in rds format.
 \section{Deployment}
-All the models for prediction are deployed using shiny web app.
-In shiny there are many features added like Statistical summary, Histogram ploting, findig correlation
+   Our team developed the model in RStudio using R programming. RStudio Shiny is an excellent tool for building and deploying models. Shiny provides the ability to build reactive web applications all in R programming language. 
+    We deployed our prediction model using Shiny. There are several tools to help you host a Shiny app, and the most common ones are RStudio Connect, shinyapps.io, and MatrixDS.
+In shiny there are many features added like Statistical Summary, Histogram ploting, Finding correlation
+
+\chapter{EVALUATION AND RESULT}
+
+\subsection{Evaluation of Models}
+
+\begin{figure}[h]
+\label{bd}
+\centering
+\includegraphics[width= 14 cm]{best_model.jpg}
+\caption{model plot}
+\end{figure}
+We can see that CatBoost and Random forest are the best models with Least error. We can use this model in any web app or mobile app.
+to predict the amount of PM 2.5. In Prophet forecsting RMSE value is 64 AQI and the LSTM model the RMSE Ranges from 80 to 124 AQI.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
